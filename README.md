@@ -31,7 +31,7 @@ templates/registration/signup.html - This file is what will appear when the user
 * _<WEBSITE>/accounts/logout_
 
 
-###### Other notes/updates
+## Other notes/updates
 * The user model is pretty much done. The only thing that is missing the profile picture.
 * Add new hobbies through the admin panel. It's the easiest way.
 * The register page works so add users through that, or use the admin panel + changepassword command.
