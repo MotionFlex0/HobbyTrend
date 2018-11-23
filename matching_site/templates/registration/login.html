@@ -1,0 +1,13 @@
+<!--TODO: This is where the login page should go.-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Login page example</h3>
+<form method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Login</button>
+</form>
+
+{% endblock content %}
