@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>This is the example homepage</h1>
+
+{% if user.is_authenticated %}
+    <h3>Your account information</h3>
+    <p>You're current signed in as: {{user.username}}</h3>
+    <p>Name: {{user.get_full_name}}</p>
+    <p>DOB: {{user.dob}}</p>
+    <p>Gender(database-entry): {{user.gender}}</p>
+    <p>Gender(full): {{user.get_gender_display}}</p>
+    <h4>List of hobbies</h4>
+    <ul>
+        {% for hobby in user.hobbies.all %}
+            <li>{{hobby.name}}</li>
+        {% endfor %}
+    </ul>
+    <a href='{% url 'logout' %}'>Click to logout</a>
+{% else %}
+    <p>You're not logged in</p>
+    <a href='{% url 'login' %}'>Click to login</a>
+    <br>
+    <a href='{% url 'signup' %}'>Click to create an account</a>
+{% endif %}
+
+{% endblock content %}

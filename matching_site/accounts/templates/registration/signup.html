@@ -1,0 +1,14 @@
+<!--This is the signup page. The code should go between the content blocks-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>This is the signup page example</h2>
+
+<form method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Register account</button>
+</form> 
+
+{% endblock content %}
