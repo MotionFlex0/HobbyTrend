@@ -18,17 +18,17 @@ Test account credentials
 
 templates/base.html - This file contains the header and footer, which should appear on all pages.
 
-template/core/home.html - This file is the homepage. I have added some examples on how to check if a user is logged in and how to get their data. It appears you to go to _<WEBSITE>/_
+template/core/home.html - This file is the homepage. I have added some examples on how to check if a user is logged in and how to get their data. It appears you to go to _/_
 
-templates/registration/login.html - This file is what will appear when the user goes to _<WEBSITE>/accounts/login_.
+templates/registration/login.html - This file is what will appear when the user goes to _/accounts/login_.
 
-templates/registration/signup.html - This file is what will appear when the user goes to _<WEBSITE>/accounts/signup_.
+templates/registration/signup.html - This file is what will appear when the user goes to _/accounts/signup_.
 
 ## Paths
-* _<WEBSITE>/_
-* _<WEBSITE>/accounts/signup_
-* _<WEBSITE>/accounts/login_
-* _<WEBSITE>/accounts/logout_
+* _/_
+* _/accounts/signup_
+* _/accounts/login_
+* _/accounts/logout_
 
 
 ## Other notes/updates
