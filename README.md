@@ -12,7 +12,7 @@ Test account credentials
 ###### Currently 2 apps
 * core - contains the core site. primarily the home.html(homepage).
 
-* accounts - This extends the current functionally provided by the auth module (in this case, I have added a signup view). It also contains the custom user class (it has the specification items. dob, list of hobbies. it is only missing profile picture)
+* accounts - This extends the current functionally provided by the auth module (in this case, I have added a signup view). It also contains the custom user class (it has the specification items. dob, list of hobbies and profile picture)
 
 ## Templates
 
@@ -30,9 +30,17 @@ templates/registration/signup.html - This file is what will appear when the user
 * _/accounts/login_
 * _/accounts/logout_
 
+## First time
+* Make sure you have the Django and Pillow modules installed. 
+* Do the follow if you don't
+1. Locate the requirements.txt file
+1. Run this command
+```bash   
+    pip install -r requirements.txt
+```
 
 ## Other notes/updates
-* The user model is pretty much done. The only thing that is missing the profile picture.
+* The user model is pretty much done.
 * Add new hobbies through the admin panel. It's the easiest way.
 * The register page works so add users through that, or use the admin panel + changepassword command.
 * I have reordered a few things to make it clearer. As well as added some examples to help.

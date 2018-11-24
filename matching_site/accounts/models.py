@@ -22,7 +22,7 @@ class Profile(AbstractUser):
     dob = models.DateField(blank=False)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=False)
     hobbies = models.ManyToManyField(Hobby)
-    #profile_image = models.FileField(blank=True) # ImageField is best suited here but it requires Pillow(Image library for python)
+    profile_pic = models.FileField(blank=True) 
 
     def __str__(self):      
         return self.username
