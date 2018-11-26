@@ -1,8 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from datetime import date
-
 #This model is for all of our available hobbies
 class Hobby(models.Model):
     name = models.CharField(max_length=32)
@@ -14,7 +12,7 @@ class Hobby(models.Model):
         verbose_name_plural='hobbies'
 
 # This is the model each user 
-class Profile(AbstractUser):
+class UserProfile(AbstractUser):
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female')
