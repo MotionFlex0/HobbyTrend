@@ -13,7 +13,14 @@
     <section id="addFilter">
         <div id="add">
             <h3>Add a new hobby</h3>
-            <input type="text" id="hobbyList" placeholder="&#x1F50D; Search hobbies"><br>
+            <input list="hobbies" name="hobbies" id="hobbyList" placeholder="&#x1F50D; Search hobbies"><br>
+            <datalist id="hobbies">
+                    <option value="Computer Science">
+                    <option value="Football">
+                    <option value="Music">
+                    <option value="Clubbing">
+                    <option value="Painting">
+                  </datalist>
             <button>Add</button>
         </div>
         <div class="seperator"></div>

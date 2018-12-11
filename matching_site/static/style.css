@@ -45,7 +45,7 @@ nav img:hover, button, #commonUser .hobbyList li:last-child {
 }
 
 /* general styles */
-input[type="text"], input[type="number"]{
+input[type="text"], input[type="number"], input[type="password"]{
     background-color: #F1F1F2;
     height: 40px;
     border: none;
@@ -79,7 +79,7 @@ input[type="text"], input[type="number"]{
     border-radius: 8px;
     box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
 }
-#loginRegister input[type="text"]{
+#loginRegister input[type="text"], input[type="password"]{
     display: block; 
     margin-bottom: 16px;
     width: 300px;
@@ -105,7 +105,7 @@ input[type="text"], input[type="number"]{
     margin-left: 4px;
 }
 
-#loginRegisterButtons, #loginRegister input[type="text"], .elementContainer, #loginRegister button {
+#loginRegisterButtons, #loginRegister input[type="text"], input[type="password"], .elementContainer, #loginRegister button {
     position: relative;
     left: 50%;
     transform: translateX(-50%); 
@@ -141,7 +141,7 @@ main h2 {
     width: 1px !important;
     background-color: rgba(0, 0, 0, 0.18);
 }
-#addFilter input[type="text"] {
+#addFilter #hobbyList {
     background-color: #F1F1F2;
     height: 40px;
     border: none;
@@ -149,8 +149,6 @@ main h2 {
     padding: 0 16px;
     width: auto;
     font-size: 12px;
-}
-#addFilter #add input[type="text"]{
     width: 100%;
     margin: 16px 0 8px 0;
 }
@@ -360,6 +358,62 @@ button {
     font-weight: bold;
     color: white;
 }
+/* message styles */
+
+#messages, #messageInput {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
+}
+#messages {
+    width: calc(880px - 48);
+    padding: 24px;
+}
+#messageInput {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+#messages {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+#messages .message {
+    width: 100%;
+    display: flex;
+    margin-bottom: 16px;
+}
+#messages .message img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+#messages .message p {
+    max-width: 350px;
+    padding: 16px;
+    margin: 0 16px;
+    border-radius: 20px;
+    background-color: #D8D8D8;
+}
+#messages .to {
+    flex-direction: row-reverse;
+}
+#messages .to p {
+    background-color: rgb(62, 150, 250);
+    color: white;
+}
+#messageInput #message {
+    margin-right: 16px;
+    flex-grow: 2;
+}
+#messageInput button {
+    width: 40px;
+    height: 40px;
+    padding: 0px 10px;
+}
+
 /*footer styles*/
 footer{
     position: fixed;
@@ -372,4 +426,62 @@ footer p {
     opacity: 0.5;
     margin: 8px;
     text-align: center;
+}
+
+/* all responsive media queries */
+@media only screen and (max-width: 880px){ 
+    nav, main {
+        width: calc(100% - 32px);
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    #addFilter {
+        flex-direction: column;
+    }
+    #addFilter div {
+        width: 100%;
+    }
+    #profile {
+        width: calc(100% - 32px);
+    }
+}
+@media only screen and (max-width: 600px){
+    #profileBlackView {
+        background-color: white;
+    }
+    #profile {
+        width: 100vw;
+        height: 100%;
+        padding-bottom: 0px;
+    }
+    #profileDetails {
+        flex-direction: column;
+    }
+    #profileDetails ul {
+        width: 100%;
+    }
+    #profile, #profile #profileImage, #profile h1, #loginRegister {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+    }
+    #profile h1 {
+        margin: 24px 0;
+    }
+    #profile #profileImage {
+        margin-top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #loginRegister {
+        padding-top: 60px;
+        height: calc(100vh - 60px);
+        background-color: white;
+    }
+    #loginRegister form {
+        width: 100%;
+        padding: 0px;
+        box-shadow: none;
+    }
 }
