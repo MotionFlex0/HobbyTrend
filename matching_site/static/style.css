@@ -1,0 +1,375 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+}
+html, footer{
+    background-color: #FAFAFA;
+}
+/*header styles*/
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 60px;
+    background-color: rgb(62, 150, 250);
+    box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.18);
+}
+nav, main {
+    width: 880px;
+    padding: 0 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+nav h2 {
+    line-height: 60px;
+    color: white;
+}
+nav img {
+    width: 32px;
+    height: 32px;
+    margin: 14px 0;
+}
+nav img:hover, button, #commonUser .hobbyList li:last-child {
+    cursor: pointer;
+}
+
+/* general styles */
+input[type="text"], input[type="number"]{
+    background-color: #F1F1F2;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    padding: 0 16px;
+    width: auto;
+    font-size: 12px;
+}
+.secondaryButton {
+    margin-top: 24px;
+    background: none;
+    color: rgb(62, 150, 250);
+}
+
+/*login-register styles*/
+#loginRegister {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#loginRegister h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 32px;
+}
+#loginRegister form {
+    width: 500px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
+}
+#loginRegister input[type="text"]{
+    display: block; 
+    margin-bottom: 16px;
+    width: 300px;
+}
+#loginRegister input[type="number"]{
+    width: 100px;
+}
+#loginRegister form button {
+    width: 310px;
+}
+#loginRegister .container {
+    display: inline-block;
+    margin-right: 24px;
+}
+.elementContainer {
+    width: 310px;
+    margin-bottom: 16px;
+}
+.elementContainer p {
+    margin-bottom: 8px;
+    opacity: 0.5;
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+#loginRegisterButtons, #loginRegister input[type="text"], .elementContainer, #loginRegister button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+
+/*main styles*/
+main {
+    margin: 100px 0;
+}
+main h2 {
+    margin-bottom: 24px;
+}
+
+/*add & filter styles*/
+#addFilter{
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
+    margin-bottom: 40px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+#addFilter div {
+    width: calc(50% - 44px);
+}
+#addFiter h3 {
+    font-weight: 400;
+}
+.seperator{
+    width: 1px !important;
+    background-color: rgba(0, 0, 0, 0.18);
+}
+#addFilter input[type="text"] {
+    background-color: #F1F1F2;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    padding: 0 16px;
+    width: auto;
+    font-size: 12px;
+}
+#addFilter #add input[type="text"]{
+    width: 100%;
+    margin: 16px 0 8px 0;
+}
+#addFilter #add button{
+    float: right;
+    margin-bottom: 8px;
+}
+#addFilter #filter form{
+    width: 50%;
+    margin-top: 24px;
+    float: left;
+}
+#addFilter #filter form:last-child{
+    text-align: center;
+}
+#addFilter #filter input[type="text"]{
+    width: 60px;
+    text-align: center;
+    margin-top: 8px;
+}
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #eee;
+    border-radius: 50%;
+}  
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+.container input:checked ~ .checkmark {
+    background-color: #eee;
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+.container .checkmark:after {
+    top: 4px;
+   left: 4px;
+   width: 16px;
+   height: 16px;
+   border-radius: 50%;
+   background: #2196F3;
+}
+
+/*user list style*/
+#commonUser {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
+}
+#commonUser .infoBar {
+    display: flex;
+}
+#commonUser .infoBar img {
+    width: 80px;
+    height: 80px;
+    margin: 16px 8px 16px 16px;
+    border-radius: 40px;
+    object-fit: cover;
+}
+#commonUser .infoBar p {
+    flex-grow: 2;
+    margin-top: 40px;
+}
+#commonUser .infoBar p span {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5)
+}
+#commonUser .infoBar button {
+    margin: 40 16px 0 0;
+    width: 150px;
+}
+#commonUser hr{
+    margin: 0 24px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+#commonUser .hobbyList {
+    padding: 20px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+#commonUser .hobbyList li {
+    height: 40px;
+    background: #D8D8D8;
+    line-height: 40px;
+    padding: 0 16px;
+    border-radius: 20px;
+    margin: 4 4px;
+}
+#commonUser .hobbyList li:last-child {
+    color: white;
+    background-color: #2196F3;
+}
+
+
+/*Profile modal styles*/
+#profileBlackView {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+#profile {
+    background-color: white;
+    width: 690px;
+    padding-bottom: 40px; 
+    border-radius: 8px;
+    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+#profile > #profileImage {
+    width: 180px;
+    height: 180px;
+    border: 10px solid white;
+    border-radius: 100%;
+    object-fit: cover;
+    position: relative;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#profile > #editImage {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+}
+#profile > #editImage:hover {
+    cursor: pointer;
+}
+#profile h1 {
+    text-align: center;
+    display: block;
+    position: absolute;
+    top: 96px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 24px;
+}
+#profileDetails {
+    display: flex;
+    width: calc(100% - 64px);
+    margin: 0 32px 0 32px;
+    display: flex;
+    justify-content: space-between;
+}
+#profileDetails ul {
+    width: calc(50% - 44px);
+    padding: 0;
+    list-style: none;
+}
+#profileDetails ul li {
+    margin-bottom: 16px;
+}
+#profile button {
+    width: 250px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 24px;
+}
+button {
+    padding: 0 16px;
+    height: 40px;
+    border: none;
+    border-radius: 50px;
+    background: rgb(62, 150, 250);
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+/*footer styles*/
+footer{
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+}
+footer p {
+    font-size: 14px;
+    opacity: 0.5;
+    margin: 8px;
+    text-align: center;
+}

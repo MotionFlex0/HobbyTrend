@@ -1,0 +1,54 @@
+<section id="loginRegister">
+    <h2>HobbyTrend</h2>
+    <form id="login" style="display: none;">
+        <input type="text" id="username" placeholder="username">
+        <input type="text" id="password" placeholder="password">
+        <button onClick="login()">login</button>
+    </form>
+    <form id="register" style="display: block;">
+        <input type="text" id="email" placeholder="email">
+        <input type="text" id="username" placeholder="username">
+        <input type="text" id="password" placeholder="password">
+
+        <div class="elementContainer">
+            <p>date of birth</p>
+            <input type="number" id="day" placeholder="day" min="1" max="31">
+            <input type="number" id="month" placeholder="month" min="1" max="12">
+            <input type="number" id="year" placeholder="year" min="1900" max="2018">
+        </div>
+        <div class="elementContainer">
+            <p>gender</p>
+            <label class="container">Male
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Female
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <button onClick="register()">register</button>
+    </form>
+    <button class="secondaryButton" id="logRegButton" onClick="toggleLoginRegister()">login</button>
+</section>
+<link rel="stylesheet" type="text/css" href="../static/style.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+<script>
+
+    function toggleLoginRegister() {
+        var loginForm = document.getElementById("login");
+        var registerForm = document.getElementById("register");
+        var logRegButton = document.getElementById("logRegButton");
+
+        if (loginForm.style.display == "block") {
+            loginForm.style.display = "none";
+            registerForm.style.display = "block";
+            logRegButton.innerHTML = "login";
+        } else {
+            loginForm.style.display = "block";
+            registerForm.style.display = "none";
+            logRegButton.innerHTML = "register";
+        }
+    }
+
+</script>
