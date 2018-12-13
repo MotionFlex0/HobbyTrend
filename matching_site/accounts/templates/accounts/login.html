@@ -1,0 +1,50 @@
+<!--TODO: This is where the login page should go.-->
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <section id="loginRegister">
+        <h2>HobbyTrend</h2>
+        <form id="login" method="POST" action="/accounts/login/" hidden>
+            {% csrf_token %}
+            <input type="text" id="username" name="username" placeholder="username" value="{{username|default_if_none:""}}">
+            <input type="password" id="password" name="password" placeholder="password">
+            <button type="button" id="loginButton">login</button>
+        </form>
+        <form id="register" method="POST" action="/accounts/register/">
+            {% csrf_token %}
+            {{form.errors}}
+            <input type="text" id="first_name" name="first_name" placeholder="first name" value="{{form.first_name.value|default_if_none:""}}">
+            <input type="text" id="last_name"  name="last_name" placeholder="last name" value="{{form.last_name.value|default_if_none:""}}">
+            <input type="text" id="email" name="email" placeholder="email" value="{{form.email.value|default_if_none:""}}">
+            <input type="text" id="username_reg" name="username" placeholder="username" value="{{form.username.value|default_if_none:""}}">
+            <input type="password" id="password_reg" name="password" placeholder="password" value="{{form.password.value|default_if_none:""}}">
+
+            <div class="elementContainer">
+                <p>date of birth</p>
+                <input type="number" id="day" placeholder="day" min="1" max="31" value="{{form.dob.date|date:"j"}}">
+                <input type="number" id="month" placeholder="month" min="1" max="12" value="{{form.dob|date:"n"}}">
+                <input type="number" id="year" placeholder="year" min="1900" max="2018" value="{{form.dob|date:"Y"}}">
+                <input type="input" id="dob" name="dob" value="--" hidden>
+            </div>
+            <div class="elementContainer">
+                <p>gender</p>
+                <label class="container">Male
+                    <input type="radio" checked="checked" name="gender" value="M">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Female
+                    <input type="radio" checked="checked" name="gender" value="F">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button type="button" id="registerButton">register</button>
+        </form>
+        <button class="secondaryButton" id="logRegButton">login</button>
+    </section>
+{% endblock content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'accounts/js/login.js' %}"></script>
+{% endblock scripts %}

@@ -1,27 +1,94 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
-<h1>This is the example homepage</h1>
+<header>
+    <nav>
+        <h2>HobbyTrend</h2>
+        <img src="../static/img/proflieIcon.png" alt="profile Icon" id="myProfile" data-user-id="me">
+    </nav>
+</header>
+{% csrf_token %}
+<main>
+    <h2>Welcome Back {{user.get_full_name}}</h2>
+    <section id="addFilter">
+        <div id="add">
+            <h3>Add a new hobby</h3>
+            <input list="hobbies" name="hobbies" id="hobbyList" placeholder="&#x1F50D; Search hobbies"><br>
+            <datalist id="hobbies">
+                {% for hobby in hobby_list %}
+                    <option value="{{hobby.name}}">
+                {% endfor %}
+            </datalist>
+            <button id="addHobby">Add</button>
+            <button id="removeHobby">Remove</button>
+        </div>
+        <div class="seperator"></div>
+        <div id="filter">
+            <h3>Show only</h3>
+            <form>
+                <label class="container">Male
+                    <input type="radio" name="gender" value="Male">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Female
+                    <input type="radio" checked="checked" name="gender" value="Female">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
+            <form>
+                Aged Between<br>
+                <input type="text" id="minAge" placeholder="0" data-last-val=""> and
+                <input type="text" id="maxAge" placeholder="99" data-last-val="">
+            </form>
+        </div>
+    </section>
+    
+    <div id="commonUserContainer">
+        <section id="defaultCommonUser" class="commonUser">
+            <div class="infoBar">
+                <img src="https://images.unsplash.com/photo-1529932260967-af9d3bbd8138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="Names Image">
+                <p id="userHeading"></p>
+                <button id="viewProfile">view profile</button>
+            </div>
+            <hr>
+            <ul id="hobbyList" class="hobbyList">
+            
+            </ul>
+        </section>
+    </div>
+</main>
 
-{% if user.is_authenticated %}
-    <h3>Your account information</h3>
-    <p>You're current signed in as: {{user.username}}</h3>
-    <p>Name: {{user.get_full_name}}</p>
-    <p>DOB: {{user.dob}}</p>
-    <p>Gender(database-entry): {{user.gender}}</p>
-    <p>Gender(full): {{user.get_gender_display}}</p>
-    <h4>List of hobbies</h4>
-    <ul>
-        {% for hobby in user.hobbies.all %}
-            <li>{{hobby.name}}</li>
-        {% endfor %}
-    </ul>
-    <a href='{% url 'logout' %}'>Click to logout</a>
-{% else %}
-    <p>You're not logged in</p>
-    <a href='{% url 'login' %}'>Click to login</a>
-    <br>
-    <a href='{% url 'signup' %}'>Click to create an account</a>
-{% endif %}
+<div id="profileOverlay" hidden>
+    <div id="profileBlackView"></div>
+    <section id="profile">
+        <img id="profileImage" src="https://images.unsplash.com/photo-1529932260967-af9d3bbd8138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="profile image"/>
+            <!--<img id="exitImage" src="{% static 'img/exit.png' %}" alt="exit icon"/>-->
+            <span id="exitImage" aria-hidden="true">&times;</span>
+        <h1 id="profileViewName"></h1>
+        <section id="profileDetails">
+            <ul>
+                <li id="profileViewEmail">
+                </li>
+                <li id="profileViewGender">
+                </li>
+                <li id="profileViewBirthday">
+                </li>
+            </ul>
+            <div class="seperator"></div>
+            <ul>
+                <li><b>Hobbies:</b></li>
+                <div id="profileViewHobbies">
 
+                </div>
+            </ul>
+        </section>
+        <button>contact</button>
+    </section>
+</div>
 {% endblock content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'core/js/home.js' %}"></script>
+{% endblock scripts %}

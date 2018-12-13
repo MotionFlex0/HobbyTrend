@@ -1,188 +1,21 @@
-<!--Place the code for the base page in this file
-(header, footer and other essentials which should appear on every page-->
-<header>
-<!--remove this and the line below-->
-    <nav>
-        <h2>HobbyTrend</h2>
-        <img src="../static/img/proflieIcon.png" alt="profile Icon">
-    </nav>
-</header>
-
-<main>
-    <h2>Welcome Back username</h2>
-    <section id="addFilter">
-        <div id="add">
-            <h3>Add a new hobby</h3>
-            <input type="text" id="hobbyList" placeholder="&#x1F50D; Search hobbies"><br>
-            <button>Add</button>
-        </div>
-        <div class="seperator"></div>
-        <div id="filter">
-            <h3>Show only</h3>
-            <form>
-                <label class="container">Male
-                    <input type="radio" checked="checked" name="radio">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Female
-                    <input type="radio" checked="checked" name="radio">
-                    <span class="checkmark"></span>
-                </label>
-            </form>
-            <form>
-                Aged Between<br>
-                <input type="text" id="minAge" placeholder="0"> and
-                <input type="text" id="maxAge" placeholder="99">
-            </form>
-        </div>
-    </section>
+<!--<header>
+<h4>Add the header here</h4>
+</header>-->
+{% load static %}
     
-    <section id="commonUser">
-        <div class="infoBar">
-            <img src="https://images.unsplash.com/photo-1529932260967-af9d3bbd8138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="Names Image">
-            <p>Firstname Lastname<br><span class="light">14 hobbies in common</span></p>
-            <button>view profile</button>
-        </div>
-        <hr>
-        <ul class="hobbyList">
-            <li class="hobbyItem">Football</li>
-            <li class="hobbyItem">Painting</li>
-            <li class="hobbyItem">Music</li>
-            <li class="hobbyItem">Computer Sciences</li>
-            <li class="hobbyItem">Football</li>
-            <li class="hobbyItem">Painting</li>
-            <li class="hobbyItem">Music</li>
-            <li class="hobbyItem">Computer Sciences</li>
-            <li class="hobbyItem">Football</li>
-            <li class="hobbyItem">Painting</li>
-            <li class="hobbyItem">Music</li>
-            <li class="hobbyItem">Computer Sciences</li>
-            <li class="hobbyItem">and 10 others</li>
-        </ul>
-    </section>
-    <section id="commonUser">
-            <div class="infoBar">
-                <img src="https://images.unsplash.com/photo-1529932260967-af9d3bbd8138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="Names Image">
-                <p>Firstname Lastname<br><span class="light">14 hobbies in common</span></p>
-                <button>view profile</button>
-            </div>
-            <hr>
-            <ul class="hobbyList">
-                <li class="hobbyItem">Football</li>
-                <li class="hobbyItem">Painting</li>
-                <li class="hobbyItem">Music</li>
-                <li class="hobbyItem">Computer Sciences</li>
-                <li class="hobbyItem">Football</li>
-                <li class="hobbyItem">Painting</li>
-                <li class="hobbyItem">Music</li>
-                <li class="hobbyItem">Computer Sciences</li>
-                <li class="hobbyItem">Football</li>
-                <li class="hobbyItem">Painting</li>
-                <li class="hobbyItem">Music</li>
-                <li class="hobbyItem">Computer Sciences</li>
-                <li class="hobbyItem">and 10 others</li>
-            </ul>
-        </section>
-        <section id="commonUser">
-                <div class="infoBar">
-                    <img src="https://images.unsplash.com/photo-1529932260967-af9d3bbd8138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="Names Image">
-                    <p>Firstname Lastname<br><span class="light">14 hobbies in common</span></p>
-                    <button>view profile</button>
-                </div>
-                <hr>
-                <ul class="hobbyList">
-                    <li class="hobbyItem">Football</li>
-                    <li class="hobbyItem">Painting</li>
-                    <li class="hobbyItem">Music</li>
-                    <li class="hobbyItem">Computer Sciences</li>
-                    <li class="hobbyItem">Football</li>
-                    <li class="hobbyItem">Painting</li>
-                    <li class="hobbyItem">Music</li>
-                    <li class="hobbyItem">Computer Sciences</li>
-                    <li class="hobbyItem">Football</li>
-                    <li class="hobbyItem">Painting</li>
-                    <li class="hobbyItem">Music</li>
-                    <li class="hobbyItem">Computer Sciences</li>
-                    <li class="hobbyItem">and 10 others</li>
-                </ul>
-            </section>
-            <section id="commonUser">
-                    <div class="infoBar">
-                        <img src="https://images.unsplash.com/photo-1529932260967-af9d3bbd8138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="Names Image">
-                        <p>Firstname Lastname<br><span class="light">14 hobbies in common</span></p>
-                        <button>view profile</button>
-                    </div>
-                    <hr>
-                    <ul class="hobbyList">
-                        <li class="hobbyItem">Football</li>
-                        <li class="hobbyItem">Painting</li>
-                        <li class="hobbyItem">Music</li>
-                        <li class="hobbyItem">Computer Sciences</li>
-                        <li class="hobbyItem">Football</li>
-                        <li class="hobbyItem">Painting</li>
-                        <li class="hobbyItem">Music</li>
-                        <li class="hobbyItem">Computer Sciences</li>
-                        <li class="hobbyItem">Football</li>
-                        <li class="hobbyItem">Painting</li>
-                        <li class="hobbyItem">Music</li>
-                        <li class="hobbyItem">Computer Sciences</li>
-                        <li class="hobbyItem">and 10 others</li>
-                    </ul>
-                </section>
-                <section id="commonUser">
-                        <div class="infoBar">
-                            <img src="https://images.unsplash.com/photo-1529932260967-af9d3bbd8138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="Names Image">
-                            <p>Firstname Lastname<br><span class="light">14 hobbies in common</span></p>
-                            <button>view profile</button>
-                        </div>
-                        <hr>
-                        <ul class="hobbyList">
-                            <li class="hobbyItem">Football</li>
-                            <li class="hobbyItem">Painting</li>
-                            <li class="hobbyItem">Music</li>
-                            <li class="hobbyItem">Computer Sciences</li>
-                            <li class="hobbyItem">Football</li>
-                            <li class="hobbyItem">Painting</li>
-                            <li class="hobbyItem">Music</li>
-                            <li class="hobbyItem">Computer Sciences</li>
-                            <li class="hobbyItem">Football</li>
-                            <li class="hobbyItem">Painting</li>
-                            <li class="hobbyItem">Music</li>
-                            <li class="hobbyItem">Computer Sciences</li>
-                            <li class="hobbyItem">and 10 others</li>
-                        </ul>
-                    </section>
-                    <section id="commonUser">
-                            <div class="infoBar">
-                                <img src="https://images.unsplash.com/photo-1529932260967-af9d3bbd8138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="Names Image">
-                                <p>Firstname Lastname<br><span class="light">14 hobbies in common</span></p>
-                                <button>view profile</button>
-                            </div>
-                            <hr>
-                            <ul class="hobbyList">
-                                <li class="hobbyItem">Football</li>
-                                <li class="hobbyItem">Painting</li>
-                                <li class="hobbyItem">Music</li>
-                                <li class="hobbyItem">Computer Sciences</li>
-                                <li class="hobbyItem">Football</li>
-                                <li class="hobbyItem">Painting</li>
-                                <li class="hobbyItem">Music</li>
-                                <li class="hobbyItem">Computer Sciences</li>
-                                <li class="hobbyItem">Football</li>
-                                <li class="hobbyItem">Painting</li>
-                                <li class="hobbyItem">Music</li>
-                                <li class="hobbyItem">Computer Sciences</li>
-                                <li class="hobbyItem">and 10 others</li>
-                            </ul>
-                        </section>
-</main>
+<body>
+    {% block content %}{% endblock content %}
 
-<!--{% block content %}
-{% endblock content %}-->
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    {% endblock scripts %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+</body>
 
 <footer>
-<!--remove this and the line below-->
-<p>hobbyTrend 2018. Mark Brown, Adam Daod, Nathaniel Lewis & Alounthong Xanexaya</p>
+    {% block footer %}
+        <p>hobbyTrend 2018. Mark Brown, Adam Daod, Nathaniel Lewis & Alounthong Xanexaya</p>
+    {% endblock footer %}
 </footer>
-<link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../static/style.css">
