@@ -1,55 +1,7 @@
-<<<<<<< HEAD
 <!--<header>
 <h4>Add the header here</h4>
 </header>-->
 {% load static %}
-=======
-<!--Place the code for the base page in this file
-(header, footer and other essentials which should appear on every page-->
-<header>
-<!--remove this and the line below-->
-    <nav>
-        <h2>HobbyTrend</h2>
-        <img src="../static/img/proflieIcon.png" alt="profile Icon">
-    </nav>
-</header>
-
-<main>
-    <h2>Welcome Back username</h2>
-    <section id="addFilter">
-        <div id="add">
-            <h3>Add a new hobby</h3>
-            <input list="hobbies" name="hobbies" id="hobbyList" placeholder="&#x1F50D; Search hobbies"><br>
-            <datalist id="hobbies">
-                    <option value="Computer Science">
-                    <option value="Football">
-                    <option value="Music">
-                    <option value="Clubbing">
-                    <option value="Painting">
-                  </datalist>
-            <button>Add</button>
-        </div>
-        <div class="seperator"></div>
-        <div id="filter">
-            <h3>Show only</h3>
-            <form>
-                <label class="container">Male
-                    <input type="radio" checked="checked" name="radio">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Female
-                    <input type="radio" checked="checked" name="radio">
-                    <span class="checkmark"></span>
-                </label>
-            </form>
-            <form>
-                Aged Between<br>
-                <input type="text" id="minAge" placeholder="0"> and
-                <input type="text" id="maxAge" placeholder="99">
-            </form>
-        </div>
-    </section>
->>>>>>> 9e23f5f4e79458ef7980229c36afb74313d40e50
     
 <body>
     {% block content %}{% endblock content %}
