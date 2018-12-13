@@ -10,7 +10,7 @@
 </header>
 {% csrf_token %}
 <main>
-    <h2>Welcome Back {{user.get_full_name}}</h2>
+    <h2>Welcome back {{user.get_full_name}}</h2>
     <section id="addFilter">
         <div id="add">
             <h3>Add a new hobby</h3>
@@ -28,11 +28,11 @@
             <h3>Show only</h3>
             <form>
                 <label class="container">Male
-                    <input type="radio" name="gender" value="Male">
+                    <input type="checkbox" name="gender" value="Male" checked>
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Female
-                    <input type="radio" checked="checked" name="gender" value="Female">
+                    <input type="checkbox" checked="checked" name="gender" value="Female" checked>
                     <span class="checkmark"></span>
                 </label>
             </form>
@@ -83,7 +83,7 @@
                 </div>
             </ul>
         </section>
-        <button>contact</button>
+        <div id="messageLogout"></div>
     </section>
 </div>
 {% endblock content %}
