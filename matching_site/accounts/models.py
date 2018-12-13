@@ -3,7 +3,7 @@ from django.db import models
 
 from django.utils.dateformat import format
 
-from datetime import date
+from datetime import date, datetime
 
 #This model is for all of our available hobbies
 class Hobby(models.Model):
@@ -21,10 +21,11 @@ class UserProfile(AbstractUser):
         ('M', 'Male'),
         ('F', 'Female')
     )
+    #general fields
     dob = models.DateField(blank=False)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=False)
     hobbies = models.ManyToManyField(Hobby)
-    profile_pic = models.ImageField(upload_to='media/profile_pic', blank=True) 
+    profile_pic = models.ImageField(upload_to='media/profile_pic', blank=True)
 
     def calc_age(self):
         today_date = date.today()

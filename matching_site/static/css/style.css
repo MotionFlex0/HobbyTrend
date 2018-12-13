@@ -20,6 +20,12 @@ header{
     background-color: rgb(62, 150, 250);
     box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.18);
 }
+#notificationTray{
+    /*margin: auto;*/
+    width: 100px;
+    background-color: greenyellow;
+    z-index: 7;
+}
 nav, main {
     width: 880px;
     padding: 0 20px;

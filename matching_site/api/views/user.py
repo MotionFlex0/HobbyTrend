@@ -2,16 +2,16 @@ import json
 
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
-from django.shortcuts import render
+from django.http import Http404, JsonResponse
 
 from accounts.models import UserProfile
 
-# Create your views here.
+# Send information related to the logged in user in JSON format
 @login_required
 def me(request):
     return JsonResponse(request.user.as_json())
 
+# Add and remove hobbies for the logged in user
 @login_required
 def my_hobbies(request):
     if request.method == 'POST':
@@ -24,6 +24,7 @@ def my_hobbies(request):
 
     return JsonResponse(request.user.hobbies_as_json())
 
+#Returns information about another user
 @login_required
 def user_req(request, user_id):
     if user_id == None:
@@ -31,13 +32,13 @@ def user_req(request, user_id):
     try:
         user_obj = UserProfile.objects.filter(id=user_id).get()
     except ObjectDoesNotExist:
-        return JsonResponse({'error':'Unknown user selected'})  
+        raise Http404('Unknown user selected')  
 
     if (request.method == 'GET'):    
         return JsonResponse(user_obj.as_json())
 
 
-#This returns a JSON of all the user who have similar interest
+#This returns a JSON of all the user who have similar interest ; It also filters based on gender and age
 @login_required
 def common_interest_users(request):
     users = {}
@@ -79,6 +80,7 @@ def common_interest_users(request):
     sorted_users['length'] = finalLength 
     return JsonResponse(sorted_users)
 
+#Helper function. It compared the interest of the logged in user, and another user - returning how similar they are
 def compare_interest(request, other_user):
     count = 0
     for h in request.user.hobbies.all():

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <main>
+        <h2>You & {{recipient}}</h2>
+        <section id="messages">
+            <div class="message from">
+                <img src="https://images.unsplash.com/photo-1517461743639-4982607f3cad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" class="messageProfile" alt="firstname lastname image">
+                <p class="messageBody">Hey lets talk about shit that we like because we can. I love getting blackout drunk and snorting cocain whilst hanging from a traffic light wbu?</p>
+            </div>
+            <div class="message to">
+                <img src="https://images.unsplash.com/photo-1511945224391-bf244579e40d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1622&q=80" class="messageProfile" alt="firstname lastname image">
+                <p class="messageBody">wow</p>
+            </div>
+            <div class="message to">
+                <img src="https://images.unsplash.com/photo-1511945224391-bf244579e40d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1622&q=80" class="messageProfile" alt="firstname lastname image">
+                <p class="messageBody">personally im more of a cat person myself but each to their own. Maybe we should trade lifestyles one day.</p>
+            </div>
+            <div class="message from">
+                <img src="https://images.unsplash.com/photo-1517461743639-4982607f3cad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" class="messageProfile" alt="firstname lastname image">
+                <p class="messageBody">Hey lets talk about shit that we like because we can. I love getting blackout drunk and snorting cocain whilst hanging from a traffic light wbu?</p>
+            </div>
+            <div class="message to">
+                <img src="https://images.unsplash.com/photo-1511945224391-bf244579e40d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1622&q=80" class="messageProfile" alt="firstname lastname image">
+                <p class="messageBody">wow</p>
+            </div>
+            <div class="message to">
+                <img src="https://images.unsplash.com/photo-1511945224391-bf244579e40d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1622&q=80" class="messageProfile" alt="firstname lastname image">
+                <p class="messageBody">personally im more of a cat person myself but each to their own. Maybe we should trade lifestyles one day.</p>
+            </div>
+        
+        </section>
+        <section id="messageInput">
+            <input type="text" name="message" id="message" placeholder="write something...">
+            <button id="messageSend"><img src="{% static 'message/img/sendIcon.png' %}" width="24" height="24" alt="send"></button>
+        </section>
+    </main>
+<script>
+    window.onload = function() {
+        var messages = document.getElementById("messages");
+        messages.scrollTop = messages.scrollHeight;
+        $("body").addClass("disableScrolling");
+    };
+</script>
+{% endblock content %}

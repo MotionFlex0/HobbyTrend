@@ -8,4 +8,5 @@ urlpatterns = [
     path('user/me', views.me),
     path('user/me/hobbies', views.my_hobbies),
     path('user/<int:user_id>', views.user_req)
+    #path('message/<int:recipient_id>', views.message)
 ]
