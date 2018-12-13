@@ -5,6 +5,7 @@ function init() {
     $("#myProfile").click(function() {
         showProfile($(this).data('userId'));
     });
+
     $("#exitImage").click(function() {
         $("#profileOverlay").hide();
         $("body").removeClass("disableScrolling");
@@ -13,7 +14,7 @@ function init() {
     $("#addHobby").click(addHobby);
     $("#removeHobby").click(removeHobby);
 
-    $('input[type=radio][name=gender]').change(refreshUserList);
+    $('input[type=checkbox][name=gender]').change(refreshUserList);
 
     $('#minAge, #maxAge').on("input", function() {
         if (validateAge(this))
@@ -24,10 +25,24 @@ function init() {
 }
 
 function refreshUserList() {
+
+    var selectedGenders = [];
+    var gender = "";
+    
+    $("input[name=gender]:checked").each(function() {
+        selectedGenders.push($(this).val());
+    });
+
+    if (selectedGenders.length > 1 || selectedGenders.length == 0){
+        gender = "";
+    } else {
+        gender = selectedGenders[0];
+    }
+
     $.ajax('api/getcommonusers', {
         method: 'GET',
         data: {
-            gender: $("input[name=gender]:checked").val(),
+            gender: gender,
             minAge: $("#minAge").val() || 0,
             maxAge: $("#maxAge").val() || 99,
         },
@@ -91,6 +106,16 @@ function showProfile(userId) {
                 });
                 $("#profileOverlay").show();
                 $("body").addClass("disableScrolling");
+                if (userId == "me") {
+                    $("#messageLogout").html('<button id="logout">Logout</button>');
+
+                    $("#logout").click(function(){
+                        window.location = "accounts/logout/";
+                    });
+
+                } else {
+                    $("#messageLogout").html('<button id="message">Message</button>');
+                }
             }
         }
     });   
