@@ -24,6 +24,21 @@ function init() {
     refreshUserList();
 }
 
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+  
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+  
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+
 function refreshUserList() {
 
     var selectedGenders = [];
@@ -108,7 +123,6 @@ function showProfile(userId) {
                 $("body").addClass("disableScrolling");
                 if (userId == "me") {
                     $("#messageLogout").html('<button id="logout">Logout</button>');
-
                     $("#logout").click(function(){
                         window.location = "accounts/logout/";
                     });

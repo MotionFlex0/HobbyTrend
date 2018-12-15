@@ -123,6 +123,8 @@ USE_TZ = True
 AUTH_USER_MODEL = 'accounts.UserProfile'
 LOGOUT_REDIRECT_URL = '/'
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join('BASE_DIR', 'media')
+MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
