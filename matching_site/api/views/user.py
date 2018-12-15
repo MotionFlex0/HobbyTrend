@@ -68,7 +68,7 @@ def common_interest_users(request):
         maxAgeFilter = 99    
 
     for k in list(users.keys()):
-        if genderFilter and genderFilter != users[k]['gender'] or minAgeFilter >= int(users[k]['age']) or maxAgeFilter <= int(users[k]['age']):
+        if genderFilter == "None" or genderFilter != "Both" and genderFilter != users[k]['gender'] or minAgeFilter >= int(users[k]['age']) or maxAgeFilter <= int(users[k]['age']):
             del users[k] 
 
     finalLength = 0
@@ -76,7 +76,6 @@ def common_interest_users(request):
         sorted_users[finalLength] = users[u]
         finalLength += 1
         
-    #limit to 10
     sorted_users['length'] = finalLength 
     return JsonResponse(sorted_users)
 

@@ -4,5 +4,6 @@ from . import views
 
 #URL patterns for /api/
 urlpatterns = [
-    path('conversation/<int:user_id>', views.conversation)
+    path('startchat/<int:user_id>', views.start_chat, name='startchat'),
+    path('conversation/<int:chat_id>', views.conversation, name='conversation')
 ]

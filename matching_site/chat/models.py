@@ -8,22 +8,7 @@ class Chat(models.Model):
     #chat_name = models.CharField(max_length=200)
 
     def __str__(self):
-        return ' | '.join([p.get_full_name() for p in self.participants.all()])
-
-'''
-    def messages_as_json(self):
-        ret = {}
-        for i, m, in enumerate(self.message.all()):
-            ret[i] = {
-                'message':m.message,
-                'timestamp':m.created_at,
-                'semder':m.sender
-            }
-        return ret
-
-    def __str__(self):
-        return "{} & {}".format(self.user1.get_full_name(), self.user2.get_full_name())
-'''
+        return ' | '.join([p.get_full_name() for p in self.participants.all()]) + ' (id: {})'.format(self.id)
 
 class Message(models.Model):
     text = models.CharField(max_length=260)
@@ -37,19 +22,22 @@ class Message(models.Model):
     def as_json(self):
         return dict(
             text=self.text,
-            sender_id=self.sender.id
+            sender_id=self.sender.id,
+            created_at=self.created_at
         )
 
+# Is used to alert a user of any new message. Each instance is temporary
 class NewMessage(models.Model):
     recipient = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     message = models.ForeignKey(Message, on_delete=models.CASCADE)
 
-    #This function then deletes the message, then delete this instance
+    def __str__(self):
+        return self.message.text
+
+    #This method return the message and  delete this instance
     def read(self):
         m = self.message
         self.delete()
         return m
 
-    def __str__(self):
-        return self.message.text
     

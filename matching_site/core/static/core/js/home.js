@@ -33,11 +33,12 @@ function refreshUserList() {
         selectedGenders.push($(this).val());
     });
 
-    if (selectedGenders.length > 1 || selectedGenders.length == 0){
-        gender = "";
-    } else {
+    if (selectedGenders.length > 1)
+        gender = "Both";
+    else if(selectedGenders.length == 0)
+        gender = "None";
+    else
         gender = selectedGenders[0];
-    }
 
     $.ajax('api/getcommonusers', {
         method: 'GET',

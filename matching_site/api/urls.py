@@ -7,6 +7,8 @@ urlpatterns = [
     path('getcommonusers', views.common_interest_users),
     path('user/me', views.me),
     path('user/me/hobbies', views.my_hobbies),
-    path('user/<int:user_id>', views.user_req)
-    #path('message/<int:recipient_id>', views.message)
+    path('user/<int:user_id>', views.user_req),
+    path('chat/<int:chat_id>/allmessages', views.all_message), #Get all messages
+    path('chat/<int:chat_id>/send', views.send_message), #Send a message to all users in a chat
+    path('chat/<int:chat_id>/update', views.update_chat) #Check if there are any new messages
 ]
