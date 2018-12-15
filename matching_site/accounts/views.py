@@ -42,6 +42,13 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
+def save_profile_image(request):
+    if request.method == 'POST':
+        return redirect('')
+    else:
+        return redirect('')
+
+
 @login_required
 def myprofile(request):
     return render(request, 'accounts/my_profile.html')

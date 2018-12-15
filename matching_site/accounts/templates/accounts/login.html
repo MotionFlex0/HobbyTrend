@@ -5,13 +5,14 @@
 {% block content %}
     <section id="loginRegister">
         <h2>HobbyTrend</h2>
-        <form id="login" method="POST" action="/accounts/login/" hidden>
+        <form id="login" method="POST" action="/accounts/login/">
             {% csrf_token %}
             <input type="text" id="username" name="username" placeholder="username" value="{{username|default_if_none:""}}">
             <input type="password" id="password" name="password" placeholder="password">
             <button type="button" id="loginButton">login</button>
         </form>
-        <form id="register" method="POST" action="/accounts/register/">
+
+        <form id="register" method="POST" action="/accounts/register/" hidden="hidden">
             {% csrf_token %}
             {{form.errors}}
             <input type="text" id="first_name" name="first_name" placeholder="first name" value="{{form.first_name.value|default_if_none:""}}">
@@ -40,7 +41,20 @@
             </div>
             <button type="button" id="registerButton">register</button>
         </form>
-        <button class="secondaryButton" id="logRegButton">login</button>
+
+        <form id="imageUpload" method="POST" action="/accounts/imageUpload/" hidden="hidden">
+            {% csrf_token %}
+            <p>add a profile image?</p>
+            <div class="uploadInput" id="uploadInput">
+                <input class="uploadFile" type="file" name="files[]" id="file"/>
+                <label for="file" id="fileLabel">
+                    <img src="{% static 'img/photoIcon.png' %}" width="40" class="uploadIcon" alt="photo icon">
+                    <p><b>Choose a file</b></p>
+                </label>
+            </div>
+            <button type="button" id="submitImage">upload</button>
+        </form>
+        <button class="secondaryButton" id="logRegButton">register</button>
     </section>
 {% endblock content %}
 
