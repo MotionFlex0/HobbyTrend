@@ -114,14 +114,11 @@ function showProfile(userId) {
                 $("#profileViewGender").html(`<b>Gender:</b> ${userData.gender}`);
                 $("#profileViewBirthday").html(`<b>Birthday:</b> ${userData.dob}`);
                 $.each(userData.hobbies, function(index, value) {
-                    if (userData.hobbies.length-1 == index) {
+                    if (userData.hobbies.length-1 == index)
                         $("#profileViewHobbies").append(value);
-                    }
                     else
                         $("#profileViewHobbies").append(`${value}, `);
                 });
-                $("#profileOverlay").show();
-                $("body").addClass("disableScrolling");
                 if (userId == "me") {
                     $("#messageLogout").html('<button id="logout">Logout</button>');
                     $("#logout").click(function(){
@@ -129,8 +126,14 @@ function showProfile(userId) {
                     });
 
                 } else {
-                    $("#messageLogout").html('<button id="message">Message</button>');
+                    $("#messageLogout").html(
+                        $('<button id="message">Message</button>').click(function() {
+                            window.open(`chat/startchat/${userId}`);
+                        })
+                    );
                 }
+                $("#profileOverlay").show();
+                $("body").addClass("disableScrolling");
             }
         }
     });   
