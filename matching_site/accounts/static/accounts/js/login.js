@@ -16,7 +16,7 @@ function init() {
     });
 
     //By default, we start at the register page. So change page if the URL is for login
-    if (window.location.pathname == "/accounts/login/")
+    if (window.location.pathname == "/accounts/register/")
         toggleLoginRegister();
 }
 
