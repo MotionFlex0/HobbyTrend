@@ -63,6 +63,7 @@ class UserProfile(AbstractUser):
             id=self.id,
             first_name=self.first_name,
             last_name=self.last_name,
+            name_formatted = '{}  {}   <span style="font-size: 11px !important; color: #aaaaaa;">(@{})</span>'.format(self.first_name, self.last_name, self.username), # So ghetto....
             email=self.email,
             dob=format(self.dob, 'dS M Y'),
             gender=self.get_gender_display(),

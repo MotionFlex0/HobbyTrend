@@ -37,4 +37,4 @@ def conversation(request, chat_id):
     else:
         chat.delete()
         raise Http404('This chat has now been deleted, as you were the only participant.')
-    return render(request, 'chat/chat.html', {'chat_id':chat_id, 'recipient':user2.get_full_name()})
+    return render(request, 'chat/chat.html', {'chat_id':chat_id, 'recipient_name':user2.get_full_name(), 'recipient_username':user2.username})

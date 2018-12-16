@@ -1,4 +1,5 @@
 import json
+import re
 
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, JsonResponse
@@ -8,7 +9,6 @@ from chat.decorators import is_user_chat_participant
 from chat.models import Chat, Message, NewMessage
 
 # This view returns all the messages in a conversation. It also deletes any new messages for the authenticated user, related to that chat
-@login_required
 @is_user_chat_participant
 def all_message(request, chat_id):
     if (request.method == 'GET'):
@@ -39,18 +39,20 @@ def all_message(request, chat_id):
 
 
 # This view handles messages sent by a user.
-@login_required
 @is_user_chat_participant
 def send_message(request, chat_id):
     if (request.method == 'POST'):
         if 'message' in request.POST:
             text = request.POST['message']
-            new_message = Message(sender=request.user, text=text, chat=Chat.objects.get(id=chat_id)) #This is safe, as the checks whether the chat exists
+
+            #If the message has a @<Username>, we check if there is a user assoicated with that Username
+            formatted_text = re.sub(r'([\s]?)(@[\w]+)', repl, text)
+
+            new_message = Message(sender=request.user, text=formatted_text, chat=Chat.objects.get(id=chat_id)) #This is safe, as the checks whether the chat exists
             new_message.save() # A post_save signal handler will create a NewMessage obj for each user in the chat
             return JsonResponse({'success':1})
 
 # This view responses with any new messages
-@login_required
 @is_user_chat_participant
 def update_chat(request, chat_id):
     if (request.method == 'GET'):
@@ -76,3 +78,13 @@ def update_chat(request, chat_id):
             ))
         else:
             return JsonResponse({})
+
+#Helper function - Checks if the @<Username> relates to a vlaid user
+def repl(found):
+    s = found.group(2)
+    try:
+        s = s[1:].lower()
+        user = UserProfile.objects.get(username__iexact=s)
+        return '{}<a style="color:magenta" href="/profile/{}" target="_blank">{}</a>'.format(found.group(1), user.id, found.group(2))
+    except UserProfile.DoesNotExist:
+        return found.group(0)

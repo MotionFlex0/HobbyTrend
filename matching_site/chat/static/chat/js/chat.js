@@ -43,7 +43,8 @@ function checkForNewMessages() {
         },
         error: function() {
             console.log('Something went wrong. Stopping updates');
-            updateTimer.stop();
+            $("#message").prop('disabled', true).val('Something went wrong. Refresh this page.').css('background-color', 'rgb(255, 77, 77)');
+            clearInterval(updateTimer);
         }
     });
 }

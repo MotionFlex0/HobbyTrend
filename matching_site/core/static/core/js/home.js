@@ -9,6 +9,7 @@ function init() {
     $("#exitImage").click(function() {
         $("#profileOverlay").hide();
         $("body").removeClass("disableScrolling");
+        history.replaceState(null, "Profile", `/`);
     })
 
     $("#addHobby").click(addHobby);
@@ -20,6 +21,10 @@ function init() {
         if (validateAge(this))
             refreshUserList();
     });
+
+    var openProfile = window.location.pathname.match(/^\/profile\/([\d]+)$/);
+    if (openProfile)
+        showProfile(parseInt(openProfile[1]))
 
     refreshUserList();
 }
@@ -38,7 +43,7 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
 }
 
-
+//This function refreshs the user list on the home page.
 function refreshUserList() {
 
     var selectedGenders = [];
@@ -55,7 +60,7 @@ function refreshUserList() {
     else
         gender = selectedGenders[0];
 
-    $.ajax('api/getcommonusers', {
+    $.ajax('/api/getcommonusers', {
         method: 'GET',
         data: {
             gender: gender,
@@ -79,7 +84,7 @@ function refreshUserList() {
                     
                     newNode.data("userId", userData.id);
                     newNode.find("#hobbyList").empty();
-                    newNode.find("#userHeading").html(`${userData.first_name} ${userData.last_name}<br><span class="light">${userData.common_hobbies} hobbies in common</span>`);
+                    newNode.find("#userHeading").html(`${userData.name_formatted}<br><span class="light">${userData.common_hobbies} hobbies in common</span>`);
                     newNode.find("#profilePic").attr("src", userData.profile_pic).attr("alt", `${userData.first_name} ${userData.last_name}'s image`);                 
                     newNode.find("#viewProfile").data("userId", userData.id).click(function() {
                         showProfile($(this).data("userId"));
@@ -101,8 +106,9 @@ function refreshUserList() {
     });
 }
 
+//This fuanctoin does a AJAX require for a individual user's information. This information is then shown on the profile page
 function showProfile(userId) {
-    $.ajax(`api/user/${userId}`, {
+    $.ajax(`/api/user/${userId}`, {
         method: 'GET',
         headers: {
             'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val()
@@ -110,7 +116,7 @@ function showProfile(userId) {
         success: function(userData) {
             if (!('error' in userData)) {
                 $("#profileViewHobbies").empty();
-                $("#profileViewName").html(`${userData.first_name} ${userData.last_name}`);
+                $("#profileViewName").html(`${userData.name_formatted}`);
                 $("#profileViewEmail").html(`<b>Email:</b> ${userData.email}`);
                 $("#profileViewGender").html(`<b>Gender:</b> ${userData.gender}`);
                 $("#profileViewBirthday").html(`<b>Birthday:</b> ${userData.dob}`);
@@ -136,13 +142,16 @@ function showProfile(userId) {
                 }
                 $("#profileOverlay").show();
                 $("body").addClass("disableScrolling");
+                history.replaceState(null, "Profile", `/profile/${userId}`);
+                console.log("state changed");
             }
         }
     });   
 }
 
+//This function sends a AJAX request, in order to add a new hobby to the logged in user's profile
 function addHobby() {
-    $.ajax('api/user/me/hobbies', {
+    $.ajax('/api/user/me/hobbies', {
         method: 'POST',
         headers: {
             'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val()
@@ -156,8 +165,9 @@ function addHobby() {
     });
 }
 
+//This function allows the user to remove a hobby.
 function removeHobby() {
-    $.ajax('api/user/me/hobbies', {
+    $.ajax('/api/user/me/hobbies', {
         method: 'DELETE',
         headers: {
             'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val()
@@ -172,6 +182,7 @@ function removeHobby() {
     });
 }
 
+//This function validates the age entered, to make sure it is a number.
 function validateAge(element) {
     var newValue = $(element).val();
     if (newValue == "" || $.isNumeric(newValue) && $(element).val().length <= 2) {
