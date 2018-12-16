@@ -2,20 +2,33 @@
 {% load staticfiles %}
 
 {% block content %}
-    <main>
-        {% csrf_token %}
-        <h2>You & {{recipient}}</h2>
-        <section id="messages">
-            <div id="prototypeMessage" class="message">
-                <img class="messageProfile" src="{% static 'chat/img/info-1459077_1280.png' %}">
-                <p class="messageBody">Hey! Welcome to HobbyTrends chat. Some information....</p>
-            </div>   
-        </section>
-        <section id="messageInput">
-            <input type="text" name="message" id="message" placeholder="write something...">
-            <button id="messageSend"><img src="{% static 'chat/img/sendIcon.png' %}" width="24" height="24" alt="send"></button>
-        </section>
-    </main>
+<head>
+    <title>Hobby Trend | Message {{recipient}}</title>
+</head>
+<!-- Variation on header to remove user view and add messages to title -->
+<header>
+    <nav>
+        <h2>HobbyTrend<span style="font-size: 16px; font-weight: 400;"> Messages</span></h2>
+    </nav>
+</header>
+
+<!-- Main messageing view, shows message template -->
+<main>
+    {% csrf_token %}
+    <h2>You & {{recipient}}</h2>
+    <section id="messages">
+        <div id="prototypeMessage" class="message">
+            <img class="messageProfile" src="{% static 'chat/img/info-1459077_1280.png' %}">
+            <p class="messageBody">Hey! Welcome to HobbyTrends chat. Some information....</p>
+        </div>   
+    </section>
+    <section id="messageInput">
+        <input type="text" name="message" id="message" placeholder="write something...">
+        <button id="messageSend"><img src="{% static 'chat/img/sendIcon.png' %}" width="24" height="24" alt="send"></button>
+    </section>
+</main>
+
+<!-- Setup conversation variables -->
 <script>
     var MY_USER_ID = {{request.user.id}};
     var CHAT_ID = {{chat_id}};

@@ -2,6 +2,11 @@
 {% load staticfiles %}
 
 {% block content %}
+<head>
+    <title>Hobby Trend</title>
+</head>
+
+<!-- Page header -->
 <header>
     <nav>
         <h2>HobbyTrend</h2>
@@ -11,6 +16,8 @@
 {% csrf_token %}
 <main>
     <h2>Welcome back {{user.get_full_name}}</h2>
+
+    <!-- Add filter markup -->
     <section id="addFilter">
         <div id="add">
             <h3>Add a new hobby</h3>
@@ -44,6 +51,7 @@
         </div>
     </section>
     
+    <!-- User Display Container -->
     <div id="commonUserContainer">
         <section id="defaultCommonUser" class="commonUser">
             <div class="infoBar">
@@ -59,6 +67,7 @@
     </div>
 </main>
 
+<!-- Profile Overlay, hidden by default -->
 <div id="profileOverlay" hidden>
     <div id="profileBlackView"></div>
     <section id="profile">
@@ -82,6 +91,7 @@
                 </div>
             </ul>
         </section>
+        <!-- Either shows message or logout depending on user (shows log out for logged in user) -->
         <div id="messageLogout"></div>
     </section>
 </div>
