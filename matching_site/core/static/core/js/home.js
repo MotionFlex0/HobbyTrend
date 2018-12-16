@@ -130,13 +130,13 @@ function showProfile(userId) {
                 if (userId == "me") {
                     $("#messageLogout").html('<button id="logout">Logout</button>');
                     $("#logout").click(function(){
-                        window.location = "accounts/logout/";
+                        window.location = "/accounts/logout/";
                     });
 
                 } else {
                     $("#messageLogout").html(
                         $('<button id="message">Message</button>').click(function() {
-                            window.open(`chat/startchat/${userId}`);
+                            window.open(`/chat/startchat/${userId}`);
                         })
                     );
                 }

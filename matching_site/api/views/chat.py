@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404, JsonResponse
 
 from accounts.models import UserProfile
-from chat.decorators import is_user_chat_participant
+from chat.decorators import is_user_chat_participant, logged_in_or_throw_exception
 from chat.models import Chat, Message, NewMessage
 
 # This view returns all the messages in a conversation. It also deletes any new messages for the authenticated user, related to that chat
@@ -53,6 +53,7 @@ def send_message(request, chat_id):
             return JsonResponse({'success':1})
 
 # This view responses with any new messages
+@logged_in_or_throw_exception
 @is_user_chat_participant
 def update_chat(request, chat_id):
     if (request.method == 'GET'):

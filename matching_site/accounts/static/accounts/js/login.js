@@ -15,6 +15,12 @@ function init() {
         changeInterface($(this).html());
     });
 
+    $("#password").keyup(function(event) {
+        if (event.keyCode == 13) {
+            login()
+        }
+    })
+
     $("#day, #month, #year").on("input", updateFormattedDate);
 
     $('#file').on('change', function(){
