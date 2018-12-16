@@ -1,62 +1,69 @@
-<!--TODO: This is where the login page should go.-->
 {% extends 'base.html' %}
 {% load staticfiles %}
 
 {% block content %}
-    <section id="loginRegister">
-        <h2>HobbyTrend</h2>
-        <form id="login" method="POST" action="/accounts/login/">
-            {% csrf_token %}
-            <input type="text" id="username" name="username" placeholder="username" value="{{username|default_if_none:""}}">
-            <input type="password" id="password" name="password" placeholder="password">
-            <button type="button" id="loginButton">login</button>
-        </form>
 
-        <form id="register" method="POST" action="/accounts/register/" hidden>
-            {% csrf_token %}
-            {{form.errors}}
-            <input type="text" id="first_name" name="first_name" placeholder="first name" value="{{form.first_name.value|default_if_none:""}}">
-            <input type="text" id="last_name"  name="last_name" placeholder="last name" value="{{form.last_name.value|default_if_none:""}}">
-            <input type="text" id="email" name="email" placeholder="email" value="{{form.email.value|default_if_none:""}}">
-            <input type="text" id="username_reg" name="username" placeholder="username" value="{{form.username.value|default_if_none:""}}">
-            <input type="password" id="password_reg" name="password" placeholder="password" value="{{form.password.value|default_if_none:""}}">
+<head>
+    <title>Hobby Trend | Get Started</title>
+</head>
+<!-- Section Includes all 3 parts of login + register, profile images can be added after inital registration only, pick a file or drag and drop!-->
+<section id="loginRegister">
+    <h2>HobbyTrend</h2>
+    <!-- Login Form !-->
+    <form id="login" method="POST" action="/accounts/login/">
+        {% csrf_token %}
+        <input type="text" id="username" name="username" placeholder="username" value="{{username|default_if_none:""}}">
+        <input type="password" id="password" name="password" placeholder="password">
+        <button type="button" id="loginButton">login</button>
+    </form>
 
-            <div class="elementContainer">
-                <p>date of birth</p>
-                <input type="number" id="day" placeholder="day" min="1" max="31" value="{{form.dob.date|date:"j"}}">
-                <input type="number" id="month" placeholder="month" min="1" max="12" value="{{form.dob|date:"n"}}">
-                <input type="number" id="year" placeholder="year" min="1900" max="2018" value="{{form.dob|date:"Y"}}">
-                <input type="input" id="dob" name="dob" value="--" hidden>
-            </div>
-            <div class="elementContainer">
-                <p>gender</p>
-                <label class="container">Male
-                    <input type="radio" checked="checked" name="gender" value="M">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Female
-                    <input type="radio" checked="checked" name="gender" value="F">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <input type="input" id="image_name" name="image_name" hidden>
-            <button type="button" id="registerButton">register</button>
-        </form>
+    <!-- Register Form !-->
+    <form id="register" method="POST" action="/accounts/register/" hidden>
+        {% csrf_token %}
+        {{form.errors}}
+        <input type="text" id="first_name" name="first_name" placeholder="first name" value="{{form.first_name.value|default_if_none:""}}">
+        <input type="text" id="last_name"  name="last_name" placeholder="last name" value="{{form.last_name.value|default_if_none:""}}">
+        <input type="text" id="email" name="email" placeholder="email" value="{{form.email.value|default_if_none:""}}">
+        <input type="text" id="username_reg" name="username" placeholder="username" value="{{form.username.value|default_if_none:""}}">
+        <input type="password" id="password_reg" name="password" placeholder="password" value="{{form.password.value|default_if_none:""}}">
 
-        <form id="imageUpload" enctype="multipart/form-data" hidden>
-            {% csrf_token %}
-            <p>add a profile image?</p>
-            <div class="uploadInput" id="uploadInput">
-                <input class="uploadFile" type="file" name="image" id="file"/>
-                <label for="file" id="fileLabel">
-                    <img src="{% static 'img/photoIcon.png' %}" width="40" class="uploadIcon" alt="photo icon">
-                    <p><b>Choose a file</b></p>
-                </label>
-            </div>
-            <button type="button" id="submitImage">upload</button>
-        </form>
-        <button class="secondaryButton" id="logRegButton">register</button>
-    </section>
+        <div class="elementContainer">
+            <p>date of birth</p>
+            <input type="number" id="day" placeholder="day" min="1" max="31" value="{{form.dob.date|date:"j"}}">
+            <input type="number" id="month" placeholder="month" min="1" max="12" value="{{form.dob|date:"n"}}">
+            <input type="number" id="year" placeholder="year" min="1900" max="2018" value="{{form.dob|date:"Y"}}">
+            <input type="input" id="dob" name="dob" value="--" hidden>
+        </div>
+        <div class="elementContainer">
+            <p>gender</p>
+            <label class="container">Male
+                <input type="radio" checked="checked" name="gender" value="M">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Female
+                <input type="radio" checked="checked" name="gender" value="F">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <input type="input" id="image_name" name="image_name" hidden>
+        <button type="button" id="registerButton">register</button>
+    </form>
+
+    <!-- Image Upload Form !-->
+    <form id="imageUpload" enctype="multipart/form-data" hidden>
+        {% csrf_token %}
+        <p>add a profile image?</p>
+        <div class="uploadInput" id="uploadInput">
+            <input class="uploadFile" type="file" name="image" id="file"/>
+            <label for="file" id="fileLabel">
+                <img src="{% static 'img/photoIcon.png' %}" width="40" class="uploadIcon" alt="photo icon">
+                <p><b>Choose a file</b><br>or drag a file here</p>
+            </label>
+        </div>
+        <button type="button" id="submitImage">upload</button>
+    </form>
+    <button class="secondaryButton" id="logRegButton">register</button>
+</section>
 {% endblock content %}
 
 {% block scripts %}

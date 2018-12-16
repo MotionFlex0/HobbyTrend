@@ -1,232 +1,232 @@
-*{
+/*Generic Styles*/
+* {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif
 }
-h1, h2 {
-    font-family: 'Poppins', sans-serif;
+p {
+    font-size: 14px
 }
-html, footer{
-    background-color: #FAFAFA;
+h1,h2 {
+    font-family: 'Poppins',sans-serif
 }
-/*header styles*/
-header{
+footer,html {
+    background-color: #fafafa
+}
+/*Header & Nav Styles*/
+header {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
     width: 100vw;
     height: 60px;
-    background-color: rgb(62, 150, 250);
-    box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.18);
+    background-color: #3e96fa;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.18)
 }
-nav, main {
+main,nav {
     width: 880px;
     padding: 0 20px;
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%)
 }
 nav {
-    display: flex;
-    justify-content: space-between;
+    display: flex
 }
 nav h2 {
     line-height: 60px;
-    color: white;
+    color: #fff
 }
 nav img {
     width: 32px;
     height: 32px;
-    margin: 14px 0;
+    margin: 14px 0
 }
-nav img:hover, button /*, .commonUser .hobbyList li:last-child*/ {
-    cursor: pointer;
+/* Shared Style for Flex Sibilings*/
+nav, #addFilter, .commonUser .infoBar, #messageInput, #profileDetails {
+    justify-content: space-between;
 }
-
-/* general styles */
-input[type="text"], input[type="number"], input[type="password"]{
-    background-color: #F1F1F2;
+.commonUser .infoBar p, #messageInput #message {
+    flex-grow: 2;
+}
+.uploadFile+label:hover,button,nav img:hover {
+    cursor: pointer
+}
+/* Input general styles*/
+input[type=number],input[type=text] {
     height: 40px;
-    border: none;
-    border-radius: 20px;
+    border: 0;
     padding: 0 16px;
-    width: auto;
-    font-size: 12px;
+    width: auto
+}
+input[type=number],input[type=password],input[type=text] {
+    background-color: #f1f1f2;
+    border-radius: 20px;
+    font-size: 12px
+}
+#addFilter #hobbyList,button,input[type=password] {
+    height: 40px;
+    border: 0;
+    padding: 0 16px
 }
 button {
-    padding: 0 16px;
-    height: 40px;
-    border: none;
+    background: #3e96fa;
+    font-weight: 700;
+    color: #fff;
     border-radius: 50px;
-    background: rgb(62, 150, 250);
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
+    font-size: 14px
 }
 button:hover {
-    background: rgb(120, 170, 227);
+    background: #78aae3
 }
 .secondaryButton {
     margin-top: 24px;
-    background: none;
-    color: rgb(62, 150, 250);
+    background: 0 0;
+    color: #3e96fa
 }
 .secondaryButton:hover {
-    background: none;
+    background: 0 0
+}
+/* Shared box shadow style*/
+#addFilter,#loginRegister form,#messageInput,#messages,#profile,.commonUser {
+    box-shadow: 0 11px 26px -24px rgba(0,0,0,.35)
 }
 
-/*login-register styles*/
+/* Login Styles */
 #loginRegister {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%)
 }
 #loginRegister h2 {
     text-align: center;
-    margin-bottom: 24px;
-    font-size: 32px;
+    font-size: 32px
 }
 #loginRegister form {
     width: 500px;
-    background-color: white;
+    background-color: #fff;
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
+    border-radius: 8px
 }
-#loginRegister input[type="text"], input[type="password"]{
-    display: block; 
+#loginRegister input[type=text],input[type=password] {
+    display: block;
     margin-bottom: 16px;
-    width: 300px;
+    width: 300px
 }
-#loginRegister input[type="number"]{
-    width: 100px;
+#loginRegister input[type=number] {
+    width: 100px
 }
 #loginRegister form button {
-    width: 310px;
+    width: 310px
 }
 #loginRegister .container {
     display: inline-block;
-    margin-right: 24px;
+    margin-right: 24px
 }
 .elementContainer {
     width: 310px;
-    margin-bottom: 16px;
+    margin-bottom: 16px
 }
 .elementContainer p {
     margin-bottom: 8px;
-    opacity: 0.5;
-    font-size: 14px;
-    margin-left: 4px;
+    opacity: .5;
+    margin-left: 4px
 }
-
-#loginRegisterButtons, #loginRegister input[type="text"], input[type="password"], .elementContainer, #loginRegister button {
+#loginRegister button,#loginRegister input[type=text],#loginRegisterButtons,.elementContainer,input[type=password] {
     position: relative;
     left: 50%;
-    transform: translateX(-50%); 
+    transform: translateX(-50%)
+}
+#loginRegister h2,main h2 {
+    margin-bottom: 24px
 }
 #imageUpload p {
     text-align: center;
-    font-size: 14px;
     margin-bottom: 16px;
-    opacity: 0.5;
+    opacity: .5
 }
 .uploadInput {
     width: 172px;
     height: 172px;
-    background: #F1F1F2;
+    background: #f1f1f2;
     border-radius: 8px;
     padding: 8px;
-    margin: 0 auto 24px auto;
-    transition: all .2s cubic-bezier(.87,-.41,.19,1.44);
+    margin: 0 auto 24px;
+    transition: all .2s cubic-bezier(.87,-.41,.19,1.44)
 }
 .uploadFile {
-    width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1; 
+    width: .1px;
+    height: .1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1
 }
-.uploadFile + label {
+.uploadFile+label {
     display: block;
     margin: 60px auto;
-    text-align: center;
+    text-align: center
 }
-.uploadFile + label img {
-    margin-bottom: 4px; 
+.uploadFile+label img {
+    margin-bottom: 4px
 }
-.uploadFile + label:hover {
-    cursor: pointer;
-}
-.uploadUploading, .uploadSuccess, .uploadDone, .uploadError {
-    display: none;
+.uploadDone,.uploadError,.uploadSuccess,.uploadUploading {
+    display: none
 }
 .is-dragover {
     transform: scale(1.1);
-    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 1);
+    box-shadow: 0 11px 26px -24px #000
 }
 
-/*main styles*/
+/* Main page styles */
 main {
-    margin: 100px 0;
+    margin: 100px 0
 }
-main h2 {
-    margin-bottom: 24px;
-}
-
-/*add & filter styles*/
-#addFilter{
-    background-color: white;
-    border: none;
+#addFilter {
+    background-color: #fff;
+    border: 0;
     border-radius: 8px;
-    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
     margin-bottom: 40px;
     padding: 16px;
-    display: flex;
-    justify-content: space-between;
+    display: flex
 }
 #addFilter div {
-    width: calc(50% - 44px);
+    width: calc(50% - 44px)
 }
 #addFiter h3 {
-    font-weight: 400;
+    font-weight: 400
 }
-.seperator{
-    width: 1px !important;
-    background-color: rgba(0, 0, 0, 0.18);
+.seperator {
+    width: 1px!important;
+    background-color: rgba(0,0,0,.18)
 }
 #addFilter #hobbyList {
-    background-color: #F1F1F2;
-    height: 40px;
-    border: none;
+    background-color: #f1f1f2;
     border-radius: 20px;
-    padding: 0 16px;
-    width: auto;
     font-size: 12px;
     width: 100%;
-    margin: 16px 0 8px 0;
+    margin: 16px 0 8px
 }
-#addFilter #add button{
+#addFilter #add button {
     float: right;
     margin-bottom: 8px;
-    margin-left: 8px;
+    margin-left: 8px
 }
-#addFilter #filter form{
+#addFilter #filter form {
     width: 50%;
     margin-top: 24px;
-    float: left;
+    float: left
 }
-#addFilter #filter form:last-child{
-    text-align: center;
+#addFilter #filter form:last-child {
+    text-align: center
 }
-#addFilter #filter input[type="text"]{
+#addFilter #filter input[type=text] {
     width: 60px;
     text-align: center;
-    margin-top: 8px;
+    margin-top: 8px
 }
-/* The container */
 .container {
     display: block;
     position: relative;
@@ -234,77 +234,56 @@ main h2 {
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 16px;
-    line-height: 25px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .container input {
+    line-height: 25px
+}
+.container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
-    width: 0;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmark {
+    width: 0
+}
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #eee;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
-    background-color: #2196F3;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
+    background-color: #eee
+}
+.container:hover input~.checkmark {
+    background-color: #ccc
+}
+.container input:checked~.checkmark {
+    background-color: #2196f3
+}
+.checkmark:after {
     content: "";
     position: absolute;
-    display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .container .checkmark:after {
+    display: none
+}
+.container input:checked~.checkmark:after {
+    display: block
+}
+.container .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid #fff;
     border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
+    transform: rotate(45deg)
+}
 
-/*user list style*/
+/* Style for common user view */
 .commonUser {
-    background-color: white;
-    border: none;
+    background-color: #fff;
+    border: 0;
     border-radius: 8px;
-    margin-bottom: 24px;
-    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
+    margin-bottom: 24px
 }
 .commonUser .infoBar {
-    display: flex;
+    display: flex
 }
 .commonUser .infoBar img {
     width: 80px;
@@ -314,21 +293,20 @@ main h2 {
     object-fit: cover;
 }
 .commonUser .infoBar p {
-    flex-grow: 2;
-    margin-top: 40px;
+    font-size: 16px;
+    margin-top: 40px
 }
 .commonUser .infoBar p span {
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.5)
+    color: rgba(0,0,0,.5)
 }
 .commonUser .infoBar button {
-    margin: 40 16px 0 0;
-    width: 150px;
+    margin: 40px 16px 0 0;
+    width: 150px
 }
-.commonUser hr{
+.commonUser hr {
     margin: 0 24px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.15)
 }
 .commonUser .hobbyList {
     padding: 20px;
@@ -338,130 +316,117 @@ main h2 {
 }
 .commonUser .hobbyList li {
     height: 40px;
-    background: #D8D8D8;
+    background: #d8d8d8;
     line-height: 40px;
     padding: 0 16px;
     border-radius: 20px;
-    margin: 4 4px;
+    margin: 4px
 }
-/*.commonUser .hobbyList li:last-child {
-    color: white;
-    background-color: #2196F3;
-}*/
-
-
-/*Profile modal styles*/
 .disableScrolling {
     height: 100%;
-    overflow: hidden;
+    overflow: hidden
 }
+
+/* Profile Styles */
 #profileOverlay {
     position: fixed;
     top: 50%;
     left: 50%;
-    z-index: 1;
+    z-index: 1
 }
 #profileBlackView {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0,0,0,.15);
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 2
 }
 #profile {
-    background-color: white;
+    background-color: #fff;
     width: 690px;
-    padding-bottom: 40px; 
+    padding-bottom: 40px;
     border-radius: 8px;
-    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
+    transform: translate(-50%,-50%);
+    z-index: 3
 }
-#profile > #profileImage {
+#profile>#profileImage {
     width: 180px;
     height: 180px;
-    border: 10px solid white;
+    border: 10px solid #fff;
     border-radius: 100%;
-    object-fit: cover;
     position: relative;
     top: -90px;
     left: 50%;
     transform: translateX(-50%);
+    object-fit: cover
 }
-#profile > #exitImage {
+#profile>#exitImage {
     position: absolute;
     top: 24px;
     right: 24px;
     width: 24px;
     height: 24px;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700
 }
-#profile > #exitImage:hover {
+#profile>#exitImage:hover {
     cursor: pointer;
-    color: rgb(62, 150, 250);
+    color: #3e96fa
+}
+#profile button,#profile h1 {
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 24px
 }
 #profile h1 {
     text-align: center;
     display: block;
-    position: absolute;
     top: 96px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 24px;
+    position: absolute
 }
 #profileDetails {
-    display: flex;
     width: calc(100% - 64px);
-    margin: 0 32px 0 32px;
-    display: flex;
-    justify-content: space-between;
+    margin: 0 32px;
+    display: flex
 }
 #profileDetails ul {
     width: calc(50% - 44px);
     padding: 0;
-    list-style: none;
+    list-style: none
 }
 #profileDetails ul li {
-    margin-bottom: 16px;
+    margin-bottom: 16px
 }
 #profile button {
     width: 250px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 24px;
+    position: relative
 }
-/* message styles */
 
-#messages, #messageInput {
-    background-color: white;
+/* Message styles */
+#messageInput,#messages {
+    background-color: #fff;
     border-radius: 8px;
-    margin-bottom: 16px;
-    box-shadow: 0px 11px 26px -24px rgba(0, 0, 0, 0.35);
+    margin-bottom: 16px
 }
 #messages {
     width: calc(880px - 48);
     padding: 24px;
+    height: calc(100vh - 345px);
+    overflow-y: scroll
 }
 #messageInput {
     padding: 16px;
-    display: flex;
-    align-items: center;
-}
-#messages {
-    max-height: 400px;
-    overflow-y: scroll;
+    display: flex
 }
 #messages .message {
     width: 100%;
     display: flex;
-    margin-bottom: 16px;
+    margin-bottom: 4px
 }
 #messages .message img {
     width: 40px;
@@ -470,105 +435,113 @@ main h2 {
     object-fit: cover;
 }
 #messages .message p {
+    font-size: 16px;
     max-width: 350px;
-    padding: 16px;
+    padding: 16px 20px;
     margin: 0 16px;
-    border-radius: 20px;
-    background-color: #D8D8D8;
+    border-radius: 175px;
+    background-color: #d8d8d8
 }
 #messages .to {
     flex-direction: row-reverse;
 }
 #messages .to p {
-    background-color: rgb(62, 150, 250);
-    color: white;
+    background-color: #3e96fa;
+    color: #fff
 }
 #messageInput #message {
     margin-right: 16px;
-    flex-grow: 2;
 }
 #messageInput button {
     width: 40px;
     height: 40px;
-    padding: 0px 10px;
+    padding: 0 10px
 }
 
-/*footer styles*/
-footer{
+/* Footer Styles */
+footer {
     position: fixed;
     width: 100vw;
     bottom: 0;
-    left: 0;
+    left: 0
 }
 footer p {
-    font-size: 14px;
-    opacity: 0.5;
+    opacity: .5;
     margin: 8px;
-    text-align: center;
+    text-align: center
 }
 
-/* all responsive media queries */
-@media only screen and (max-width: 880px){ 
-    nav, main {
-        width: calc(100% - 32px);
+/* for screens less that 880px wide */
+@media only screen and (max-width:880px) {
+    main,nav {
         padding-left: 16px;
-        padding-right: 16px;
+        padding-right: 16px
     }
     #addFilter {
         flex-direction: column;
     }
     #addFilter div {
-        width: 100%;
+        width: 100%
     }
-    #profile {
-        width: calc(100% - 32px);
+    #profile,main,nav {
+        width: calc(100% - 32px)
     }
 }
-@media only screen and (max-width: 600px){
+
+/* for screens less that 600px wide */
+@media only screen and (max-width:600px) {
     #profileOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1
     }
     #profileBlackView {
-        background-color: white;
+        background-color: #fff
     }
     #profile {
         width: 100vw;
         height: 100%;
-        padding-bottom: 0px;
-        box-shadow: none;
+        padding-bottom: 0;
+        box-shadow: none
     }
     #profileDetails {
         flex-direction: column;
     }
     #profileDetails ul {
-        width: 100%;
+        width: 100%
     }
-    #profile, #profile #profileImage, #profile h1, #loginRegister {
+    #loginRegister,#profile,#profile #profileImage,#profile h1 {
         position: relative;
         left: 0;
         top: 0;
-        transform: none;
-    }
-    #profile h1 {
-        margin: 24px 0;
+        transform: none
     }
     #profile #profileImage {
         margin-top: 24px;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%)
+    }
+    #profile h1 {
+        margin: 24px 0
+    }
+    .commonUser .infoBar p{
+        font-size: 14px;
     }
     #loginRegister {
         padding-top: 60px;
         height: calc(100vh - 60px);
-        background-color: white;
+        background-color: #fff
     }
     #loginRegister form {
         width: 100%;
-        padding: 0px;
-        box-shadow: none;
+        padding: 0;
+        box-shadow: none
     }
-    footer p { font-size: 10px; }
+    footer p {
+        font-size: 10px
+    }
+    #messages .message {
+        margin-bottom: 8px;
+    }
 }
