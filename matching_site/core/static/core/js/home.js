@@ -76,10 +76,11 @@ function refreshUserList() {
                         newNode = $(".commonUser:last").clone().removeAttr("id");
                     else
                         newNode = $(".commonUser");
-
+                    
+                    newNode.data("userId", userData.id);
                     newNode.find("#hobbyList").empty();
                     newNode.find("#userHeading").html(`${userData.first_name} ${userData.last_name}<br><span class="light">${userData.common_hobbies} hobbies in common</span>`);
-                    newNode.data("userId", userData.id);
+                    newNode.find("#profilePic").attr("src", userData.profile_pic).attr("alt", `${userData.first_name} ${userData.last_name}'s image`);                 
                     newNode.find("#viewProfile").data("userId", userData.id).click(function() {
                         showProfile($(this).data("userId"));
                     });
@@ -113,6 +114,7 @@ function showProfile(userId) {
                 $("#profileViewEmail").html(`<b>Email:</b> ${userData.email}`);
                 $("#profileViewGender").html(`<b>Gender:</b> ${userData.gender}`);
                 $("#profileViewBirthday").html(`<b>Birthday:</b> ${userData.dob}`);
+                $("#profileImage").attr("src", userData.profile_pic).attr("alt", `${userData.first_name} ${userData.last_name}'s image`);                 
                 $.each(userData.hobbies, function(index, value) {
                     if (userData.hobbies.length-1 == index)
                         $("#profileViewHobbies").append(value);

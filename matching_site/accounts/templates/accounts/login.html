@@ -12,7 +12,7 @@
             <button type="button" id="loginButton">login</button>
         </form>
 
-        <form id="register" method="POST" action="/accounts/register/" hidden="hidden">
+        <form id="register" method="POST" action="/accounts/register/" hidden>
             {% csrf_token %}
             {{form.errors}}
             <input type="text" id="first_name" name="first_name" placeholder="first name" value="{{form.first_name.value|default_if_none:""}}">
@@ -39,14 +39,15 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
+            <input type="input" id="image_name" name="image_name" hidden>
             <button type="button" id="registerButton">register</button>
         </form>
 
-        <form id="imageUpload" method="POST" action="/accounts/imageUpload/" hidden="hidden">
+        <form id="imageUpload" enctype="multipart/form-data" hidden>
             {% csrf_token %}
             <p>add a profile image?</p>
             <div class="uploadInput" id="uploadInput">
-                <input class="uploadFile" type="file" name="files[]" id="file"/>
+                <input class="uploadFile" type="file" name="image" id="file"/>
                 <label for="file" id="fileLabel">
                     <img src="{% static 'img/photoIcon.png' %}" width="40" class="uploadIcon" alt="photo icon">
                     <p><b>Choose a file</b></p>

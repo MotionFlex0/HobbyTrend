@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
 
@@ -5,6 +6,7 @@ from .models import Chat
 from accounts.models import UserProfile
 
 def does_chat_exist(function):
+    @login_required
     def wrap(request, *args, **kwargs):
         try:
             chat = Chat.objects.get(id=kwargs['chat_id'])
