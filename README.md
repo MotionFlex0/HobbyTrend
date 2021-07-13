@@ -7,48 +7,55 @@ Test account credentials
 * Username: user1 or user4
 * Password: complexpassword
 
-## We can start working on the stuff below (design using bootstrap and jquery etc.)
+<details>
+    <summary>Most of this text is no longer valid, as this is the completed version of the project</summary>
 
-###### Currently 2 apps
-* core - contains the core site. primarily the home.html(homepage).
+    ## Most text below is not valid as this is the final version:
 
-* accounts - This extends the current functionally provided by the auth module (in this case, I have added a signup view). It also contains the custom user class (it has the specification items. dob, list of hobbies and profile picture)
+    ## We can start working on the stuff below (design using bootstrap and jquery etc.)
 
-## Templates
+    ###### Currently 2 apps
+    * core - contains the core site. primarily the home.html(homepage).
 
-templates/base.html - This file contains the header and footer, which should appear on all pages.
+    * accounts - This extends the current functionally provided by the auth module (in this case, I have added a signup view). It also contains the custom user class (it has the specification items. dob, list of hobbies and profile picture)
 
-template/core/home.html - This file is the homepage. I have added some examples on how to check if a user is logged in and how to get their data. It appears you to go to _/_
+    ## Templates
 
-templates/registration/login.html - This file is what will appear when the user goes to _/accounts/login_.
+    templates/base.html - This file contains the header and footer, which should appear on all pages.
 
-templates/registration/signup.html - This file is what will appear when the user goes to _/accounts/signup_.
+    template/core/home.html - This file is the homepage. I have added some examples on how to check if a user is logged in and how to get their data. It appears you to go to _/_
 
-## Paths
-* _/_
-* _/accounts/signup_
-* _/accounts/login_
-* _/accounts/logout_
+    templates/registration/login.html - This file is what will appear when the user goes to _/accounts/login_.
 
-## First time
-* Make sure you have the Django and Pillow modules installed. 
-* Do the follow if you don't
-1. Locate the requirements.txt file
-1. Run this command
-```bash   
-    pip install -r requirements.txt
-```
+    templates/registration/signup.html - This file is what will appear when the user goes to _/accounts/signup_.
 
-## Other notes/updates
-* The user model is pretty much done.
-* Add new hobbies through the admin panel. It's the easiest way.
-* The register page works so add users through that, or use the admin panel + changepassword command.
-* I have reordered a few things to make it clearer. As well as added some examples to help.
-* If you want to stop a view from being accessed if  the user isn't authenticated, import login_required then use the @login_required decorator.
-```python   
-    from django.contrib.auth.decorators import login_required
+    ## Paths
+    * _/_
+    * _/accounts/signup_
+    * _/accounts/login_
+    * _/accounts/logout_
 
-    @login_required
-    def secret_view():
-```
-They will be redirected to the login page, then it will send them back
+    ## First time
+    * Make sure you have the Django and Pillow modules installed. 
+    * Do the follow if you don't
+    1. Locate the requirements.txt file
+    1. Run this command
+    ```bash   
+        pip install -r requirements.txt
+    ```
+
+    ## Other notes/updates
+    * The user model is pretty much done.
+    * Add new hobbies through the admin panel. It's the easiest way.
+    * The register page works so add users through that, or use the admin panel + changepassword command.
+    * I have reordered a few things to make it clearer. As well as added some examples to help.
+    * If you want to stop a view from being accessed if  the user isn't authenticated, import login_required then use the @login_required decorator.
+    ```python   
+        from django.contrib.auth.decorators import login_required
+
+        @login_required
+        def secret_view():
+    ```
+    They will be redirected to the login page, then it will send them back
+    
+</details>
